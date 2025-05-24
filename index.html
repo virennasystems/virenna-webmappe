@@ -2,166 +2,157 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VIRENNA Geschenkmappe</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       margin: 0;
       font-family: 'Georgia', serif;
-      background: #fffaf3;
-      color: #2c2c2c;
-      line-height: 1.6;
+      background-color: #fffdf8;
+      color: #333;
+      line-height: 1.8;
     }
+
     section {
+      padding: 60px 20px;
       max-width: 800px;
       margin: 0 auto;
-      padding: 3.5rem 1.5rem;
-      border-bottom: 1px solid #ddd;
     }
-    .cover {
-      background: url('deckblatt.PNG') center center / cover no-repeat;
-      height: 100vh;
-      border-bottom: none;
-    }
-    .page-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .van-section img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-    .separator {
+
+    h1, h2 {
+      color: #d4af37;
       text-align: center;
-      font-size: 1.5rem;
-      margin: 3rem 0;
-      color: #bbb;
     }
-    @media (max-width: 600px) {
-      section {
-        padding: 2.5rem 1rem;
-      }
-      .page-title {
-        font-size: 1.5rem;
-      }
+
+    p {
+      margin-bottom: 1.2em;
+    }
+
+    .seal {
+      display: block;
+      margin: 40px auto;
+      max-width: 200px;
+      filter: drop-shadow(0 0 6px #d4af37aa);
+    }
+
+    /* Letzte Seite Vollbild */
+    #abschluss {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    #abschluss .bg {
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') 
+        no-repeat center center / cover;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    #abschluss .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: -1;
+    }
+
+    #abschluss .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 2rem;
+    }
+
+    #abschluss h1 {
+      font-size: 2rem;
+      color: #f4c430;
+      margin-bottom: 1rem;
+    }
+
+    #abschluss p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      #abschluss h1 { font-size: 1.5rem; }
+      #abschluss p { font-size: 1rem; padding: 0 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Seite 1 – Deckblatt -->
-  <div class="cover"></div>
-
-  <!-- Seite 2 -->
+  <!-- Beispielseiten -->
   <section>
-    <div class="page-title">VIRENNA Geschenkmappe</div>
-    <p>Ein symbolisches Geschenk – geboren aus Dankbarkeit, getragen von Hoffnung, gerichtet auf eine Zukunft, in der das, was du gegeben hast, zu dir zurückkehrt.<br>
-    Diese Mappe ist mehr als Papier. Sie ist mein persönliches „Danke“.<br>
-    Ein stilles Versprechen. Und vielleicht… eine kleine Reise.</p>
+    <h1>VIRENNA Geschenkmappe</h1>
+    <p>Ein Geburtstagsprojekt für meine Mama</p>
+    <p>Ein symbolisches Geschenk voller Wertschätzung, Hoffnung – und einem Blick in eine mögliche Zukunft.</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 3 -->
   <section>
-    <div class="page-title">Der Anfang von allem</div>
-    <p>Seit vielen Jahren begleitest du mich durch eine Welt, die sich verändert hat:<br>
-    ME/CFS, MCAS, POTS, Nebennierenschwäche – Begriffe, die unser Leben geformt haben.<br>
-    Was für andere Alltag ist, wurde für uns zur Herausforderung.</p>
-    <p>Doch eines blieb: Du.<br>
-    Du hast getragen, gehalten, gestützt – auch dann, wenn niemand es sah.<br>
-    Diese Zeilen sind mein Versuch, das sichtbar zu machen.</p>
+    <h2>Ein Zeichen meiner Dankbarkeit</h2>
+    <p>Meine gesundheitliche Situation mit ME/CFS, MCAS, POTS und Nebennierenschwäche bestimmt seit Jahren meinen Alltag...</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 4 -->
   <section>
-    <div class="page-title">Ein Geschenk, das nicht aus Papier ist</div>
-    <p>Zum Geburtstag möchte ich dir etwas schenken, das nicht gekauft ist – sondern empfunden.<br>
-    Kein Objekt. Keine Schleife. Kein Karton.<br>
-    Sondern eine Idee.<br>
-    Ein inneres Bild.<br>
-    Etwas, das leise beginnt – und wachsen darf.</p>
+    <h2>Gedanken über Wertschätzung</h2>
+    <p>Wie kann man Dankbarkeit ausdrücken, wenn Worte nicht ausreichen?</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 5 -->
   <section>
-    <div class="page-title">Raum für dich</div>
-    <p>Dieses Bild wächst aus einem Gefühl:<br>
-    Dass du dir Raum verdient hast. Rückzug. Weite.<br>
-    Etwas, das dich nicht festhält, sondern begleitet.<br>
-    Etwas, das nicht fordert, sondern Luft lässt.<br>
-    Etwas, das dich mitnimmt – in deinem eigenen Rhythmus.</p>
+    <h2>Die Idee hinter VIRENNA</h2>
+    <p>VIRENNA ist mein Herzensprojekt...</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 6 -->
   <section>
-    <div class="page-title">Und dann kam VIRENNA</div>
-    <p>VIRENNA ist mein Herzensprojekt – entstanden aus Not, gewachsen aus dem Wunsch, etwas zurückzugeben.<br>
-    Eine App, die Menschen mit chronischen Erkrankungen wie ME/CFS, POTS, MCAS und Long COVID unterstützen soll.</p>
-    <p>Sie soll Orientierung geben, Schutz bieten – und das sichtbar machen, was oft übersehen wird.<br>
-    Gemeinsam mit KI-Systemen entwickelt, strukturiert, empathisch, alltagsnah.<br>
-    Und wenn VIRENNA gelingt, dann… darf etwas davon dir gehören.</p>
+    <h2>Das VIRENNA-Siegel</h2>
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+    <p>Das VIRENNA-Siegel steht für Qualität, medizinische Integrität und Hoffnung.</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 7 -->
   <section>
-    <div class="page-title">Das VIRENNA-Siegel</div>
-    <p>Das VIRENNA-Siegel steht für medizinische Integrität, Verantwortung und Hoffnung.<br>
-    Ein Symbol für alles, was dieses Projekt ausmacht: Qualität, Innovation und der Wunsch, Leben zu verbessern.<br>
-    Und es ist auch ein Versprechen: Wenn VIRENNA wächst, sollst auch du etwas zurückbekommen – still, spürbar, verdient.</p>
+    <h2>Ein symbolisches Geschenk</h2>
+    <p>Zum Geburtstag schenke ich dir eine Idee. Einen Gedanken...</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 8 – Enthüllung -->
-  <section class="van-section">
-    <img src="van.PNG" alt="VW Grand California" />
-    <p style="text-align:center;">
-      <strong>Der VW Grand California.</strong><br>
-      Ein Campervan – nicht als Geschenk, sondern als Bild.<br>
-      Nicht heute, nicht morgen.<br>
-      Aber vielleicht… wenn VIRENNA fliegt.
-    </p>
+  <section>
+    <h2>Die Überraschung</h2>
+    <p>Die Vorstellung eines VW Grand California...</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 9 -->
   <section>
-    <div class="page-title">Warum ein Van?</div>
-    <p>Weil er das verkörpert, was euch oft fehlt:<br>
-    Spontaneität. Rückzug. Luft.<br>
-    Ein Ort, der mit euch reist.<br>
-    Ein Zuhause auf vier Rädern – ohne Erwartungen, aber voller Möglichkeiten.</p>
+    <h2>Warum ein Van?</h2>
+    <p>Weil er das verkörpert, was euch oft fehlt: Spontaneität. Rückzug. Luft.</p>
   </section>
 
-  <div class="separator">⸻</div>
-
-  <!-- Seite 10 -->
   <section>
-    <div class="page-title">Was bleibt</div>
-    <p>Diese Mappe endet nicht.<br>
-    Sie öffnet einen Gedanken. Eine Richtung.<br>
-    Vielleicht einen Traum.</p>
-    <p>Es ist mein Versuch, all das zu würdigen, was du gegeben hast.<br>
-    Und die Hoffnung, dass eines Tages etwas zu dir zurückkehrt –<br>
-    nicht als Geste,<br>
-    sondern als gelebte Realität.</p>
-    <p>Denn Liebe verdient mehr als Worte.<br>
-    Sie verdient Wege.</p>
+    <h2>Das Siegel, das mehr sagt als Worte</h2>
+    <p>Das VIRENNA-Siegel steht für Verantwortung, Tiefe und Wahrhaftigkeit...</p>
+  </section>
+
+  <!-- Letzte Seite -->
+  <section id="abschluss">
+    <div class="bg"></div>
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Was bleibt</h1>
+      <p>Diese Mappe endet nicht.</p>
+      <p>Sie öffnet einen Gedanken. Eine Richtung.<br>Vielleicht einen Traum.</p>
+      <p>Es ist mein Versuch, all das zu würdigen, was du gegeben hast.</p>
+      <p>Und die Hoffnung, dass eines Tages etwas zu dir zurückkehrt –<br>nicht als Geste,<br>sondern als gelebte Realität.</p>
+      <p>Denn Liebe verdient mehr als Worte.<br>Sie verdient Wege.</p>
+    </div>
   </section>
 
 </body>
