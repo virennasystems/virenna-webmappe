@@ -1,4 +1,3 @@
-@@ -1 +1,168 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -43,12 +42,50 @@
       margin: 3rem 0;
       color: #bbb;
     }
+
+    /* Abschlussbild */
+    #abschlussbild {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    #abschlussbild .background {
+      background: url('himalaya_fahnen.gif') no-repeat center center / cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    #abschlussbild .overlay {
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
     @media (max-width: 600px) {
       section {
         padding: 2.5rem 1rem;
       }
       .page-title {
         font-size: 1.5rem;
+      }
+    }
+
+    @media print {
+      #abschlussbild {
+        display: none;
       }
     }
   </style>
@@ -163,6 +200,12 @@
     sondern als gelebte Realität.</p>
     <p>Denn Liebe verdient mehr als Worte.<br>
     Sie verdient Wege.</p>
+  </section>
+
+  <!-- Seite 11 – Animiertes Abschlussbild -->
+  <section id="abschlussbild">
+    <div class="background"></div>
+    <div class="overlay"></div>
   </section>
 
 </body>
