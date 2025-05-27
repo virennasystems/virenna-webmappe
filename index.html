@@ -4,18 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VIRENNA Geschenkmappe</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- PWA & Plattform-Kompatibilität -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#fffaf3" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+  <link rel="shortcut icon" href="icon-192.png" type="image/png" />
+
+  <!-- Open Graph (Sharing) -->
+  <meta property="og:title" content="VIRENNA Geschenkmappe" />
+  <meta property="og:description" content="Ein persönliches Geschenk voller Dankbarkeit und Hoffnung." />
+  <meta property="og:image" content="deckblatt.PNG" />
+  <meta property="og:type" content="website" />
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #fffaf3;
+      --text: #2c2c2c;
+      --accent: #bbb;
     }
 
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
       font-family: 'Georgia', serif;
-      color: #2c2c2c;
-      background-color: #fffaf3;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -32,35 +59,39 @@
       border-bottom: none;
     }
 
-    .van-section img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-
     .page-title {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
+    .van-section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: block;
+      loading: lazy;
+    }
+
     .separator {
       text-align: center;
       font-size: 1.5rem;
       margin: 3rem 0;
-      color: #bbb;
+      color: var(--accent);
     }
 
-    .closing-scene {
-      height: 100vh;
+    .final-screen {
       background: url('himalaya.PNG') center center / cover no-repeat;
+      height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       color: white;
       font-size: 2rem;
       font-weight: bold;
-      text-shadow: 0 0 10px #000;
+      text-shadow: 2px 2px 5px #000;
+      padding: 0 1rem;
     }
 
     @media (max-width: 600px) {
@@ -70,25 +101,93 @@
       .page-title {
         font-size: 1.5rem;
       }
+      .final-screen {
+        font-size: 1.6rem;
+      }
     }
-  </style>
+  
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+  .cover,
+  .final-screen {
+    background: none !important;
+    color: black !important;
+    text-shadow: none;
+    height: auto !important;
+    padding: 4rem 2rem !important;
+  }
+  .separator {
+    display: none !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+</style>
 </head>
 <body>
-
-  <!-- Seite 1 -->
   <div class="cover"></div>
-
-  <!-- Beispielseite -->
   <section>
     <div class="page-title">VIRENNA Geschenkmappe</div>
     <p>Ein symbolisches Geschenk – geboren aus Dankbarkeit, getragen von Hoffnung, gerichtet auf eine Zukunft, in der das, was du gegeben hast, zu dir zurückkehrt.<br>
     Diese Mappe ist mehr als Papier. Sie ist mein persönliches „Danke“.<br>
     Ein stilles Versprechen. Und vielleicht… eine kleine Reise.</p>
   </section>
-
   <div class="separator">⸻</div>
-
-  <!-- Beispielseite mit Bild -->
+  <section>
+    <div class="page-title">Der Anfang von allem</div>
+    <p>Seit vielen Jahren begleitest du mich durch eine Welt, die sich verändert hat:<br>
+    ME/CFS, MCAS, POTS, Nebennierenschwäche – Begriffe, die unser Leben geformt haben.<br>
+    Was für andere Alltag ist, wurde für uns zur Herausforderung.</p>
+    <p>Doch eines blieb: Du.<br>
+    Du hast getragen, gehalten, gestützt – auch dann, wenn niemand es sah.<br>
+    Diese Zeilen sind mein Versuch, das sichtbar zu machen.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Ein Geschenk, das nicht aus Papier ist</div>
+    <p>Zum Geburtstag möchte ich dir etwas schenken, das nicht gekauft ist – sondern empfunden.<br>
+    Kein Objekt. Keine Schleife. Kein Karton.<br>
+    Sondern eine Idee.<br>
+    Ein inneres Bild.<br>
+    Etwas, das leise beginnt – und wachsen darf.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Raum für dich</div>
+    <p>Dieses Bild wächst aus einem Gefühl:<br>
+    Dass du dir Raum verdient hast. Rückzug. Weite.<br>
+    Etwas, das dich nicht festhält, sondern begleitet.<br>
+    Etwas, das nicht fordert, sondern Luft lässt.<br>
+    Etwas, das dich mitnimmt – in deinem eigenen Rhythmus.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Und dann kam VIRENNA</div>
+    <p>VIRENNA ist mein Herzensprojekt – entstanden aus Not, gewachsen aus dem Wunsch, etwas zurückzugeben.<br>
+    Eine App, die Menschen mit chronischen Erkrankungen wie ME/CFS, POTS, MCAS und Long COVID unterstützen soll.</p>
+    <p>Sie soll Orientierung geben, Schutz bieten – und das sichtbar machen, was oft übersehen wird.<br>
+    Gemeinsam mit KI-Systemen entwickelt, strukturiert, empathisch, alltagsnah.<br>
+    Und wenn VIRENNA gelingt, dann… darf etwas davon dir gehören.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Das VIRENNA-Siegel</div>
+    <div style="text-align:center; margin: 2rem 0;">
+      <img src="VIRENNA_Siegel_Transparent.png" alt="VIRENNA Siegel" style="max-width: 280px; width: 100%; height: auto;" loading="lazy" />
+    </div>
+    <p>Das VIRENNA-Siegel steht für medizinische Integrität, Verantwortung und Hoffnung.<br>
+    Ein Symbol für alles, was dieses Projekt ausmacht: Qualität, Innovation und der Wunsch, Leben zu verbessern.<br>
+    Und es ist auch ein Versprechen: Wenn VIRENNA wächst, sollst auch du etwas zurückbekommen – still, spürbar, verdient.</p>
+  </section>
+  <div class="separator">⸻</div>
   <section class="van-section">
     <img src="van.PNG" alt="VW Grand California" />
     <p style="text-align:center;">
@@ -98,13 +197,38 @@
       Aber vielleicht… wenn VIRENNA fliegt.
     </p>
   </section>
-
   <div class="separator">⸻</div>
-
-  <!-- Letzte Seite -->
-  <div class="closing-scene">
+  <section>
+    <div class="page-title">Warum ein Van?</div>
+    <p>Weil er das verkörpert, was euch oft fehlt:<br>
+    Spontaneität. Rückzug. Luft.<br>
+    Ein Ort, der mit euch reist.<br>
+    Ein Zuhause auf vier Rädern – ohne Erwartungen, aber voller Möglichkeiten.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Was bleibt</div>
+    <p>Diese Mappe endet nicht.<br>
+    Sie öffnet einen Gedanken. Eine Richtung.<br>
+    Vielleicht einen Traum.</p>
+    <p>Es ist mein Versuch, all das zu würdigen, was du gegeben hast.<br>
+    Und die Hoffnung, dass eines Tages etwas zu dir zurückkehrt –<br>
+    nicht als Geste,<br>
+    sondern als gelebte Realität.</p>
+    <p>Denn Liebe verdient mehr als Worte.<br>
+    Sie verdient Wege.</p>
+  </section>
+  <div class="final-screen">
     In Dankbarkeit. Für alles.
   </div>
-
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registriert:', reg))
+          .catch(err => console.error('Service Worker Fehler:', err));
+      });
+    }
+  </script>
 </body>
 </html>
