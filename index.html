@@ -5,49 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VIRENNA Geschenkmappe</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
       font-family: 'Georgia', serif;
-      background: #fffaf3;
       color: #2c2c2c;
+      background-color: #fffaf3;
       line-height: 1.6;
     }
+
     section {
       max-width: 800px;
       margin: 0 auto;
       padding: 3.5rem 1.5rem;
       border-bottom: 1px solid #ddd;
     }
+
     .cover {
       background: url('deckblatt.PNG') center center / cover no-repeat;
       height: 100vh;
       border-bottom: none;
     }
-    .page-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+
     .van-section img {
       width: 100%;
       border-radius: 12px;
       margin-bottom: 1rem;
     }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
     .separator {
       text-align: center;
       font-size: 1.5rem;
       margin: 3rem 0;
       color: #bbb;
     }
-    .animated-bg {
-      background: url('data:image/gif;base64,R0lGODlhjAAkAPcAAP///5mZmUFBQf39/fT09KioqN/f38PDw+zs7KOjo+fn5/Ly8rCwsMLCwq6urvT09Obm5vn5+ZGRkfb29u7u7v39/fLy8uXl5Z+fn2hoaOXl5ampqV1dXfHx8ZqamqSkpP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAAP8ALAAAAACMACQAAAj/AP8JHEiwoMGDCBMqXMiwocOHECNKnEixosWLFzqXMmyZMmTKFOm3Mmzps+fPnwG3DR04jAAEh+fBBwcMEHkQPLHnw4OGLJyIIdnU6PLixUNFs+fLly5cvYBBYwdMFEjUqUAAAh+QQBAAD/ACwAAAAAjAAkAAAI/wD/CQkSFChQYMGDAgAYLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYsWLFixYAAOw==
-') no-repeat center center / cover;
+
+    .closing-scene {
       height: 100vh;
-      width: 100%;
+      background: url('himalaya.PNG') center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px #000;
     }
+
     @media (max-width: 600px) {
       section {
         padding: 2.5rem 1rem;
@@ -56,34 +71,40 @@
         font-size: 1.5rem;
       }
     }
-    @media print {
-      .animated-bg {
-        display: none !important;
-      }
-    }
   </style>
 </head>
 <body>
 
-<div class="cover"></div>
+  <!-- Seite 1 -->
+  <div class="cover"></div>
 
-<!-- Seiteninhalte folgen -->  <section>
-    <div class="page-title">Was bleibt</div>
-    <p>Diese Mappe endet nicht.<br>
-    Sie öffnet einen Gedanken. Eine Richtung.<br>
-    Vielleicht einen Traum.</p>
-    <p>Es ist mein Versuch, all das zu würdigen, was du gegeben hast.<br>
-    Und die Hoffnung, dass eines Tages etwas zu dir zurückkehrt –<br>
-    nicht als Geste,<br>
-    sondern als gelebte Realität.</p>
-    <p>Denn Liebe verdient mehr als Worte.<br>
-    Sie verdient Wege.</p>
+  <!-- Beispielseite -->
+  <section>
+    <div class="page-title">VIRENNA Geschenkmappe</div>
+    <p>Ein symbolisches Geschenk – geboren aus Dankbarkeit, getragen von Hoffnung, gerichtet auf eine Zukunft, in der das, was du gegeben hast, zu dir zurückkehrt.<br>
+    Diese Mappe ist mehr als Papier. Sie ist mein persönliches „Danke“.<br>
+    Ein stilles Versprechen. Und vielleicht… eine kleine Reise.</p>
   </section>
 
-  <!-- Letzte Seite – animiertes Abschlussbild -->
-  <section style="padding:0; border:none;">
-    <div class="animated-bg"></div>
+  <div class="separator">⸻</div>
+
+  <!-- Beispielseite mit Bild -->
+  <section class="van-section">
+    <img src="van.PNG" alt="VW Grand California" />
+    <p style="text-align:center;">
+      <strong>Der VW Grand California.</strong><br>
+      Ein Campervan – nicht als Geschenk, sondern als Bild.<br>
+      Nicht heute, nicht morgen.<br>
+      Aber vielleicht… wenn VIRENNA fliegt.
+    </p>
   </section>
+
+  <div class="separator">⸻</div>
+
+  <!-- Letzte Seite -->
+  <div class="closing-scene">
+    In Dankbarkeit. Für alles.
+  </div>
 
 </body>
 </html>
