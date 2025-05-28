@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Offline</title>
+  <meta name="description" content="Du bist offline – diese Seite ist auch ohne Internet nutzbar." />
   <style>
     body {
-      font-family: sans-serif;
+      font-family: Georgia, serif;
       text-align: center;
-      padding: 3rem;
       background: #fffaf3;
-      color: #444;
+      color: #2c2c2c;
+      padding: 4rem 1.5rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Offline</h1>
-  <p>Du bist aktuell nicht mit dem Internet verbunden.</p>
-  <p>Bitte versuche es später erneut.</p>
+  <main role="main" aria-label="Offline-Information">
+    <h1>Offline</h1>
+    <p>Du bist gerade nicht mit dem Internet verbunden.</p>
+    <p>Bitte überprüfe deine Verbindung<br> und versuche es später erneut.</p>
+  </main>
 </body>
 </html>
