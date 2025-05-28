@@ -1,11 +1,14 @@
 {
   "name": "VIRENNA Geschenkmappe",
   "short_name": "VIRENNA",
+  "description": "Eine digitale Geschenkmappe – offlinefähig und liebevoll gestaltet.",
+  "lang": "de",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#fffaf3",
   "theme_color": "#fffaf3",
-  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
