@@ -1,28 +1,23 @@
 {
-  "id": "/",
   "name": "VIRENNA Geschenkmappe",
   "short_name": "VIRENNA",
-  "description": "Ein pers\u00f6nliches Geschenk voller Dankbarkeit und Hoffnung.",
+  "description": "Eine digitale Geschenkmappe – offlinefähig und liebevoll gestaltet.",
+  "lang": "de",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#fffaf3",
   "theme_color": "#fffaf3",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "android-chrome-192x192.png",
+      "src": "icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "android-chrome-512x512.png",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "apple-touch-icon.png",
-      "sizes": "180x180",
       "type": "image/png"
     }
   ]
