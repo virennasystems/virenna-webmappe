@@ -1,44 +1,45 @@
-const CACHE_NAME = 'virenna-map-v2';
-const OFFLINE_URL = '/offline.html';
-
+const CACHE_NAME = 'virenna-cache-v1';
 const FILES_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/offline.html',
-  '/deckblatt.PNG',
-  '/van.PNG',
-  '/himalaya.PNG',
-  '/VIRENNA_Siegel_Transparent.png',
-  '/favicon-32x32.png',
-  '/manifest.json'
+  './',
+  './index.html',
+  './deckblatt.PNG',
+  './van.PNG',
+  './himalaya.PNG',
+  './manifest.json',
+  './icon-192.png',
+  './icon-512.png'
 ];
 
+// Installation – Dateien cachen
 self.addEventListener('install', (evt) => {
   evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(FILES_TO_CACHE);
+    })
   );
   self.skipWaiting();
 });
 
+// Aktivierung – veraltete Caches löschen
 self.addEventListener('activate', (evt) => {
   evt.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(keys.map((key) => {
-        if (key !== CACHE_NAME) return caches.delete(key);
-      }))
-    )
+    caches.keys().then((keyList) => {
+      return Promise.all(
+        keyList.map((key) => {
+          if (key !== CACHE_NAME) {
+            return caches.delete(key);
+          }
+        })
+      );
+    })
   );
   self.clients.claim();
 });
 
+// Abrufe abfangen – zuerst Cache, dann Netz
 self.addEventListener('fetch', (evt) => {
-  if (evt.request.mode === 'navigate') {
-    evt.respondWith(
-      fetch(evt.request).catch(() => caches.match(OFFLINE_URL))
-    );
-  } else {
-    evt.respondWith(
-      caches.match(evt.request).then((response) => response || fetch(evt.request))
-    );
-  }
+  evt.respondWith(
+    caches.match(evt.request)
+      .then((response) => response || fetch(evt.request))
+  );
 });
