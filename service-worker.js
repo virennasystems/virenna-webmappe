@@ -1,42 +1,54 @@
-const CACHE_NAME = 'virenna-cache-v1';
+const CACHE_NAME = 'virenna-cache-v2';
+const OFFLINE_URL = 'offline.html';
+
 const FILES_TO_CACHE = [
-  './',
-  './index.html',
-  './offline.html',
-  './deckblatt.PNG',
-  './van.PNG',
-  './himalaya.PNG',
-  './pattern.svg',
-  './VIRENNA_Siegel_Transparent.png',
-  './manifest.json',
-  './icon-192.png',
-  './icon-512.png'
+  '/',
+  '/index.html',
+  '/offline.html',
+  '/deckblatt.PNG',
+  '/van.PNG',
+  '/himalaya.PNG',
+  '/VIRENNA_Siegel_Transparent.png',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/manifest.json'
 ];
 
-self.addEventListener('install', (evt) => {
-  evt.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+// Installation – Assets in Cache speichern
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(FILES_TO_CACHE);
+    }).catch((err) => console.error('Cache-Fehler beim Installieren:', err))
   );
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (evt) => {
-  evt.waitUntil(
-    caches.keys().then((keyList) => {
-      return Promise.all(keyList.map((key) => {
-        if (key !== CACHE_NAME) {
-          return caches.delete(key);
-        }
-      }));
-    })
+// Aktivierung – alte Caches löschen
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.map((key) => {
+        if (key !== CACHE_NAME) return caches.delete(key);
+      }))
+    )
   );
   self.clients.claim();
 });
 
-self.addEventListener('fetch', (evt) => {
-  evt.respondWith(
-    caches.match(evt.request).then((response) => {
-      return response || fetch(evt.request).catch(() => caches.match('./offline.html'));
-    })
-  );
+// Fetch – Netzwerk + Fallback bei Navigationsanfragen
+self.addEventListener('fetch', (event) => {
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request).catch(() =>
+        caches.match(OFFLINE_URL)
+      )
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request).then((response) =>
+        response || fetch(event.request)
+      )
+    );
+  }
 });
