@@ -2,173 +2,232 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#f4c430" />
-  <title>EHRENZERTIFIKAT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VIRENNA Geschenkmappe</title>
 
-  <!-- Favicon + Manifest für PWA -->
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="manifest.json">
+
+
+  <!-- PWA & Plattform-Kompatibilität -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#fffaf3" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" href="icon-192.png" type="image/png" />
+  <link rel="shortcut icon" href="icon-192.png" type="image/png" />
+
+  <!-- Open Graph (Sharing) -->
+  <meta property="og:title" content="VIRENNA Geschenkmappe" />
+  <meta property="og:description" content="Ein persönliches Geschenk voller Dankbarkeit und Hoffnung." />
+  <meta property="og:image" content="deckblatt.PNG" />
+  <meta property="og:type" content="website" />
 
   <style>
     :root {
-      --gold: #f4c430;
+      --bg: #fffaf3;
+      --text: #2c2c2c;
+      --accent: #bbb;
     }
 
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-    }
-
-    * {
-      box-sizing: border-box;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: Georgia, serif;
-      background: #121212;
-      color: #fdfdfd;
-      padding: 1.5rem;
-      line-height: 1.8;
+      font-family: 'Georgia', serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    main[role="document"] {
-      max-width: 650px;
-      margin: auto;
-      background: #1b1b1b;
-      border: 4px solid var(--gold);
-      padding: 50px 40px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem;
+      border-bottom: 1px solid #ddd;
     }
 
-    .seal {
+    .cover {
+      background: url('deckblatt.PNG') center center / cover no-repeat;
+      height: 100vh;
+      border-bottom: none;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .van-section img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
       display: block;
-      margin: 0 auto 2rem;
-      width: 180px;
-      max-width: 100%;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
+      loading: lazy;
     }
 
-    h1 {
+    .separator {
       text-align: center;
-      font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
+      font-size: 1.5rem;
+      margin: 3rem 0;
+      color: var(--accent);
     }
 
-    p {
-      margin: 1.2rem 0;
-    }
-
-    .highlight {
-      color: var(--gold);
+    .final-screen {
+      background: url('himalaya.PNG') center center / cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 2rem;
       font-weight: bold;
+      text-shadow: 2px 2px 5px #000;
+      padding: 0 1rem;
     }
 
-    .heart {
-      color: var(--gold);
-      font-size: 2em;
-      vertical-align: middle;
-      margin-left: 0.3em;
-    }
-
-    .signature {
-      text-align: right;
-      font-style: italic;
-      color: var(--gold);
-      margin-top: 3rem;
-    }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    @media print {
-      @page {
-        margin: 2cm;
-        size: A4 portrait;
+    @media (max-width: 600px) {
+      section {
+        padding: 2.5rem 1rem;
       }
-
-      body {
-        background: white;
-        color: black;
+      .page-title {
+        font-size: 1.5rem;
       }
-
-      main[role="document"] {
-        border: none;
-        box-shadow: none;
-      }
-
-      .highlight, .heart, .signature {
-        color: black;
+      .final-screen {
+        font-size: 1.6rem;
       }
     }
-  </style>
+  
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.6;
+  }
+  .cover,
+  .final-screen {
+    background: none !important;
+    color: black !important;
+    text-shadow: none;
+    height: auto !important;
+    padding: 4rem 2rem !important;
+  }
+  .separator {
+    display: none !important;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
+
+</style>
 </head>
 <body>
-  <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
-
-    <h1>EHRENZERTIFIKAT</h1>
-
-    <p><span class="highlight">Mama,</span></p>
-
-    <p>
-      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
+  <div class="cover"></div>
+  <section>
+    <div class="page-title">VIRENNA Geschenkmappe</div>
+    <p>Ein symbolisches Geschenk – geboren aus Dankbarkeit, getragen von Hoffnung, gerichtet auf eine Zukunft, in der das, was du gegeben hast, zu dir zurückkehrt.<br>
+    Diese Mappe ist mehr als Papier. Sie ist mein persönliches „Danke“.<br>
+    Ein stilles Versprechen. Und vielleicht… eine kleine Reise.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Der Anfang von allem</div>
+    <p>Seit vielen Jahren begleitest du mich durch eine Welt, die sich verändert hat:<br>
+    ME/CFS, MCAS, POTS, Nebennierenschwäche – Begriffe, die unser Leben geformt haben.<br>
+    Was für andere Alltag ist, wurde für uns zur Herausforderung.</p>
+    <p>Doch eines blieb: Du.<br>
+    Du hast getragen, gehalten, gestützt – auch dann, wenn niemand es sah.<br>
+    Diese Zeilen sind mein Versuch, das sichtbar zu machen.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Ein Geschenk, das nicht aus Papier ist</div>
+    <p>Zum Geburtstag möchte ich dir etwas schenken, das nicht gekauft ist – sondern empfunden.<br>
+    Kein Objekt. Keine Schleife. Kein Karton.<br>
+    Sondern eine Idee.<br>
+    Ein inneres Bild.<br>
+    Etwas, das leise beginnt – und wachsen darf.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Raum für dich</div>
+    <p>Dieses Bild wächst aus einem Gefühl:<br>
+    Dass du dir Raum verdient hast. Rückzug. Weite.<br>
+    Etwas, das dich nicht festhält, sondern begleitet.<br>
+    Etwas, das nicht fordert, sondern Luft lässt.<br>
+    Etwas, das dich mitnimmt – in deinem eigenen Rhythmus.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Und dann kam VIRENNA</div>
+    <p>VIRENNA ist mein Herzensprojekt – entstanden aus Not, gewachsen aus dem Wunsch, etwas zurückzugeben.<br>
+    Eine App, die Menschen mit chronischen Erkrankungen wie ME/CFS, POTS, MCAS und Long COVID unterstützen soll.</p>
+    <p>Sie soll Orientierung geben, Schutz bieten – und das sichtbar machen, was oft übersehen wird.<br>
+    Gemeinsam mit KI-Systemen entwickelt, strukturiert, empathisch, alltagsnah.<br>
+    Und wenn VIRENNA gelingt, dann… darf etwas davon dir gehören.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Das VIRENNA-Siegel</div>
+    <div style="text-align:center; margin: 2rem 0;">
+      <img src="VIRENNA_Siegel_Transparent.png" alt="VIRENNA Siegel" style="max-width: 280px; width: 100%; height: auto;" loading="lazy" />
+    </div>
+    <p>Das VIRENNA-Siegel steht für medizinische Integrität, Verantwortung und Hoffnung.<br>
+    Ein Symbol für alles, was dieses Projekt ausmacht: Qualität, Innovation und der Wunsch, Leben zu verbessern.<br>
+    Und es ist auch ein Versprechen: Wenn VIRENNA wächst, sollst auch du etwas zurückbekommen – still, spürbar, verdient.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section class="van-section">
+    <img src="van.PNG" alt="VW Grand California" />
+    <p style="text-align:center;">
+      <strong>Der VW Grand California.</strong><br>
+      Ein Campervan – nicht als Geschenk, sondern als Bild.<br>
+      Nicht heute, nicht morgen.<br>
+      Aber vielleicht… wenn VIRENNA fliegt.
     </p>
-
-    <p class="highlight">
-      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
-    </p>
-
-    <p>Dieses Siegel steht nicht für ein Ziel –</p>
-
-    <p class="highlight">
-      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.
-    </p>
-
-    <p>
-      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
-      deine Klarheit, deine stille Präsenz,<br />
-      deinen Einsatz, der so vieles möglich macht.
-    </p>
-
-    <p>Du bist nicht nur Begleitung.</p>
-
-    <p class="highlight">
-      Du bist das Fundament, auf dem ich stehen kann –
-    </p>
-
-    <p>
-      und auf dem auch anderes wachsen konnte,<br />
-      wie zum Beispiel <span class="highlight">VIRENNA.</span>
-    </p>
-
-    <p class="highlight">
-      Danke. <span class="heart" aria-hidden="true">♥</span>
-      <span class="sr-only">Symbol für Liebe</span>
-    </p>
-
-    <div class="signature">In Liebe,<br />Tobi</div>
-  </main>
-
-  <!-- Service Worker Registrierung -->
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Warum ein Van?</div>
+    <p>Weil er das verkörpert, was euch oft fehlt:<br>
+    Spontaneität. Rückzug. Luft.<br>
+    Ein Ort, der mit euch reist.<br>
+    Ein Zuhause auf vier Rädern – ohne Erwartungen, aber voller Möglichkeiten.</p>
+  </section>
+  <div class="separator">⸻</div>
+  <section>
+    <div class="page-title">Was bleibt</div>
+    <p>Diese Mappe endet nicht.<br>
+    Sie öffnet einen Gedanken. Eine Richtung.<br>
+    Vielleicht einen Traum.</p>
+    <p>Es ist mein Versuch, all das zu würdigen, was du gegeben hast.<br>
+    Und die Hoffnung, dass eines Tages etwas zu dir zurückkehrt –<br>
+    nicht als Geste,<br>
+    sondern als gelebte Realität.</p>
+    <p>Denn Liebe verdient mehr als Worte.<br>
+    Sie verdient Wege.</p>
+  </section>
+  <div class="final-screen">
+    In Dankbarkeit. Für alles.
+  </div>
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(reg => console.log('Service Worker registriert:', reg))
-        .catch(err => console.error('Service Worker Fehler:', err));
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registriert:', reg))
+          .catch(err => console.error('Service Worker Fehler:', err));
+      });
     }
   </script>
 </body>
