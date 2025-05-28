@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VIRENNA Geschenkmappe</title>
 
-  <link rel="manifest" href="manifest.json" />
+  <!-- SEO -->
+  <meta name="description" content="Ein persönliches digitales Geschenk für meine Mutter – mit Würde, Hoffnung und Liebe.">
   <meta name="theme-color" content="#fffaf3" />
+  <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
   <link rel="icon" href="icon-192.png" type="image/png" />
   <link rel="preload" href="VIRENNA_Siegel_Transparent.png" as="image" />
@@ -16,6 +18,7 @@
       --bg: #fffaf3;
       --text: #2c2c2c;
       --accent: #bbb;
+      --vh: 1vh;
     }
 
     html {
@@ -24,7 +27,7 @@
 
     body {
       margin: 0;
-      font-family: 'Georgia', serif;
+      font-family: Georgia, serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -64,10 +67,8 @@
     }
 
     .final-screen {
-      background-image: url('himalaya.PNG'), url('pattern.svg');
-      background-size: cover, auto;
-      background-position: center;
-      height: 100vh;
+      background: url('himalaya.PNG') center center / cover no-repeat;
+      height: calc(var(--vh, 1vh) * 100);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -108,10 +109,19 @@
       }
     }
   </style>
+
+  <script>
+    function setVhUnit() {
+      document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+    }
+    window.addEventListener('resize', setVhUnit);
+    window.addEventListener('orientationchange', setVhUnit);
+    window.addEventListener('load', setVhUnit);
+  </script>
 </head>
 <body>
 
-  <div class="cover"></div>
+  <div class="cover" role="img" aria-label="Deckblatt mit Sonnenaufgang über den Bergen"></div>
 
   <section>
     <div class="page-title">VIRENNA Geschenkmappe</div>
@@ -170,7 +180,7 @@
   <section>
     <div class="page-title">Das VIRENNA-Siegel</div>
     <div style="text-align:center; margin: 2rem 0;">
-      <img src="VIRENNA_Siegel_Transparent.png" alt="VIRENNA Siegel" class="fade-in" style="max-width: 280px; width: 100%; height: auto;" />
+      <img src="VIRENNA_Siegel_Transparent.png" alt="VIRENNA Siegel" class="fade-in" style="max-width: 280px; width: 100%; height: auto;" loading="lazy" />
     </div>
     <p>Das VIRENNA-Siegel steht für medizinische Integrität, Verantwortung und Hoffnung.<br>
     Ein Symbol für alles, was dieses Projekt ausmacht: Qualität, Innovation und der Wunsch, Leben zu verbessern.<br>
@@ -180,7 +190,7 @@
   <div class="separator">⸻</div>
 
   <section class="van-section">
-    <img src="van.PNG" alt="VW Grand California" loading="lazy" />
+    <img src="van.PNG" alt="VW Grand California Camper Van" loading="lazy" />
     <p style="text-align:center;">
       <strong>Der VW Grand California.</strong><br>
       Ein Campervan – nicht als Geschenk, sondern als Bild.<br>
@@ -214,10 +224,10 @@
     Sie verdient Wege.</p>
   </section>
 
-  <div class="final-screen">
-    In Dankbarkeit. Für alles.
+  <section class="final-screen" role="region" aria-label="Abschlusssatz mit Bergkulisse">
+    <h2>In Dankbarkeit. Für alles.</h2>
     <div class="final-subtitle">Würde. Freiheit. Hoffnung.</div>
-  </div>
+  </section>
 
   <script>
     if ('serviceWorker' in navigator) {
